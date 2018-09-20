@@ -3,6 +3,7 @@ package chatNaoBloqueante;
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
 public class ChatTCPClient {
     public static void main (String args[]) {
@@ -12,7 +13,8 @@ public class ChatTCPClient {
             int serverPort = 7896;
             String localHoste = "127.0.0.1";
             //Variavel para uso do teclado
-            BufferedReader teclado =  new BufferedReader(new InputStreamReader(System.in));
+//            BufferedReader teclado =  new BufferedReader(new InputStreamReader(System.in));
+            Scanner teclado = new Scanner(System.in);
             s = new Socket(localHoste, serverPort);
 //			BufferedReader teclado =  new BufferedReader(new InputStreamReader(System.in));
 
@@ -20,7 +22,7 @@ public class ChatTCPClient {
             DataOutputStream out =new DataOutputStream( s.getOutputStream());
 
             while (true){
-                out.writeUTF(teclado.readLine());      	// UTF is a string encoding see Sn. 4.4
+                out.writeUTF(teclado.nextLine()); // UTF is a string encoding see Sn. 4.4
                 String data = in.readUTF();	    // read a line of data from the stream
                 System.out.println(data) ;
 //                if(System.in.available() > 0){

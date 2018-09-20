@@ -15,7 +15,6 @@ public class CalcUDPServer {
 	  				aSocket.receive(request);     
 
 //	    			System.out.println("Print do servidor: " + new String(request.getData()));
-
                     String valor1 = "";
                     String valor2 = "";
                     float resultado = 0;
@@ -54,42 +53,5 @@ public class CalcUDPServer {
 			}catch (SocketException e){System.out.println("Socket: " + e.getMessage());
 			}catch (IOException e) {System.out.println("IO: " + e.getMessage());
 			}finally {if(aSocket != null) aSocket.close();}
-	   }
-
-	   private float Calculo(String entrada) {
-		   String valor1 = "";
-		   String valor2 = "";
-		   for(int i = 0; i < entrada.length(); i++) {
-			   if(entrada.charAt(i) != '+') {
-				   if(entrada.charAt(i) != '-') {
-					   if(entrada.charAt(i) != '*') {
-						   if(entrada.charAt(i) != '/') {
-							   valor1 += entrada.charAt(i);
-						   }else {
-							   valor2 = entrada.substring(i+1, entrada.length());
-							   float resultado;
-							   resultado = Float.parseFloat(valor1) / Float.parseFloat(valor2);
-							   return resultado;
-						   }
-					   }else {
-						   valor2 = entrada.substring(i+1, entrada.length());
-						   float resultado;
-						   resultado = Float.parseFloat(valor1) * Float.parseFloat(valor2);
-						   return resultado;
-					   }
-				   }else {
-					   valor2 = entrada.substring(i+1, entrada.length());
-					   float resultado;
-					   resultado = Float.parseFloat(valor1) - Float.parseFloat(valor2);
-					   return resultado;
-				   }
-			   }else {
-				   valor2 = entrada.substring(i+1, entrada.length());
-				   float resultado;
-				   resultado = Float.parseFloat(valor1) + Float.parseFloat(valor2);
-				   return resultado;
-			   }
-		   }
-		   return 0;
 	   }
 }
