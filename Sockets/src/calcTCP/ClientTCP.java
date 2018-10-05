@@ -20,8 +20,7 @@ public class ClientTCP {
 			DataInputStream in = new DataInputStream( s.getInputStream());
 			DataOutputStream out =new DataOutputStream( s.getOutputStream());
 			out.writeUTF(entrada);      	// UTF is a string encoding see Sn. 4.4
-			String data = in.readUTF();	    // read a line of data from the stream
-			return data;
+			return in.readUTF();	    // read a line of data from the stream
 		}catch (UnknownHostException e){System.out.println("Socket:"+e.getMessage());
 		}catch (EOFException e){System.out.println("EOF:"+e.getMessage());
 		}catch (IOException e){System.out.println("readline:"+e.getMessage());
