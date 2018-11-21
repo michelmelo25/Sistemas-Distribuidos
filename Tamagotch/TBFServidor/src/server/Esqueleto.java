@@ -1,13 +1,17 @@
 package server;
 
+import org.json.simple.JSONObject;
+
 public class Esqueleto {
 
     private InteradorTamagotchi interadorTamagotchi = new InteradorTamagotchi();
 
 
-    public String born(String arg){
-        Tamagotch tmg = interadorTamagotchi.born(arg);
-        return toStringTMG(tmg);
+    public JSONObject born(JSONObject arg){
+        System.out.println("Esqueleto...");
+        System.out.println(arg.toString());
+        Tamagotch tmg = interadorTamagotchi.born(arg.get("nome").toString());
+        return tmg.toJson();
     }
 
 //    public String adc(String args[]){
@@ -30,9 +34,9 @@ public class Esqueleto {
 //        return "" + result;
 //    }
 
-    public String feed(String args []){
-        Tamagotch tmg = interadorTamagotchi.feed(args);
-        return toStringTMG(tmg);
+    public JSONObject feed(JSONObject args){
+        Tamagotch tmg = interadorTamagotchi.feed(new Tamagotch(args));
+        return tmg.toJson();
     }
 
     public String toStringTMG(Tamagotch tmg){

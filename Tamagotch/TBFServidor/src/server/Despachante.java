@@ -1,30 +1,26 @@
 package server;
 
+import org.json.simple.JSONObject;
+
 public class Despachante extends Thread {
 
-    public String run(String in){
-            String data = in;
-            String dataB [] = data.split(" ");
-            Esqueleto esqueleto = new Esqueleto();
+    public JSONObject run(JSONObject in){
+//        Tamagotch data =  new Tamagotch(in);
+//        String action = in.get("action").toString();
+        System.out.println(in.get("action").toString());
+        Esqueleto esqueleto = new Esqueleto();
 
-            System.out.println("oi");
-            if(dataB[0].equals("born")){
-
-
-
-                data = esqueleto.born(dataB[1]);
-
-            }else if(dataB[0].equals("feed")){
-
-                data = esqueleto.feed(dataB);
-            }else{
-                System.out.println("Algo deu errado!");
-            }
-
-            return data;
-
-
-
-
+        System.out.println("oi");
+        if(in.get("action").equals("born")){
+            System.out.println("Born...");
+            System.out.println(in.toString());
+            JSONObject tamreture = esqueleto.born(in);
+             return tamreture;
+        }else if(in.get("action").equals("feed")){
+            return esqueleto.feed(in);
+        }else{
+            System.out.println("Algo deu errado!");
+        }
+        return null;
     }
 }

@@ -27,8 +27,8 @@ public class InteradorTamagotchi {
         return new Tamagotch(nome, (new Status(bar, bar, bar, bar, bar, "GUGU_DADA")), tamagoth);
     }
 
-    public Tamagotch feed(String args []){
-        Tamagotch tmg = toTamagotch(args);
+    public Tamagotch feed(Tamagotch tmg){
+//        Tamagotch tmg = toTamagotch(args);
         tmg.getStatus().setMessage("");
         String message = "Que_comida_boa,_Yammy";
         tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() + 20);

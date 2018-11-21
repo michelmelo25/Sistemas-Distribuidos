@@ -51,4 +51,13 @@ public class Tamagotch {
                 ", face='" + face + '\'' +
                 '}';
     }
+
+    public JSONObject toJson(){
+        JSONObject T = new JSONObject();
+        T.put("nome",nome);
+        T.put("status",status);
+        T.put("face",face);
+
+        return T;
+    }
 }

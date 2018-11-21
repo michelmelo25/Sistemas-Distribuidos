@@ -12,7 +12,8 @@ public class initTamagotch {
 
         System.out.println("seja bem vindo!\nComeçe inserindo o nome do seu bichinho");
         Scanner scanner = new Scanner(System.in);
-        String nome = scanner.nextLine();
+//        String nome = scanner.nextLine();
+        String nome = "Shell";
 
         Proxy proxy = new Proxy();
 
