@@ -14,24 +14,14 @@ public class TCPServer implements Serializable{
             ServerSocket listenSocket = new ServerSocket(serverPort);
             System.out.println("Running in port... " + serverPort);
             while(true) {
-                System.out.println("1");
                 Socket clientSocket = listenSocket.accept();
                 Despachante despachante = new Despachante();
                 ObjectInputStream in = new ObjectInputStream( clientSocket.getInputStream() );
                 ObjectOutputStream out = new ObjectOutputStream( clientSocket.getOutputStream() );
-                System.out.println("Server");
                 try{
-                    System.out.println("2");
-
                     JSONObject tmg = (JSONObject) in.readObject();
 
-                    System.out.println(tmg.toString());
-
                     JSONObject t = despachante.run(tmg);
-
-                    System.out.println("---------------");
-                    System.out.println(t.toString());
-                    System.out.println("---------------");
                     out.writeObject(t);
                     out.flush();
                 }catch (ClassNotFoundException e){

@@ -68,6 +68,22 @@ public class InteradorTamagotchi implements Serializable {
         return tmg;
     }
 
+    public Tamagotch play(Tamagotch tmg){
+        return  tmg;
+    }
+    public Tamagotch bathe(Tamagotch tmg){
+        return  tmg;
+    }
+    public Tamagotch left_rest(Tamagotch tmg){
+        return  tmg;
+    }
+    public Tamagotch give_affection(Tamagotch tmg){
+        return  tmg;
+    }
+    public Status current_status(Tamagotch tmg){
+        return  tmg.getStatus();
+    }
+
     public Tamagotch toTamagotch (String args[]){
         return new Tamagotch(args[1], new Status(Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]), Integer.parseInt(args[5]), Integer.parseInt(args[6]),args[7]), args[8]);
     }

@@ -19,7 +19,23 @@ public class Despachante extends Thread implements Serializable {
             JSONObject tamreture = esqueleto.born(in);
              return tamreture;
         }else if(in.get("action").equals("feed")){
+            System.out.println("Feed...");
             return esqueleto.feed(in);
+        }else if(in.get("action").equals("play")){
+            System.out.println("Play...");
+            return esqueleto.play(in);
+        }else if(in.get("action").equals("bathe")){
+            System.out.println("Batche...");
+            return esqueleto.bathe(in);
+        }else if(in.get("action").equals("left_rest")){
+            System.out.println("Left Rest...");
+            return esqueleto.left_rest(in);
+        }else if(in.get("action").equals("give_affection")){
+            System.out.println("Give Affection...");
+            return esqueleto.give_affection(in);
+        }else if(in.get("action").equals("current_status")){
+            System.out.println("Current Status...");
+            return esqueleto.current_status(in);
         }else{
             System.out.println("Algo deu errado!");
         }

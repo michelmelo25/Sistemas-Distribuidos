@@ -1,5 +1,7 @@
 package server;
 
+import org.json.simple.JSONObject;
+
 import java.io.Serializable;
 
 public class Status implements Serializable {
@@ -77,5 +79,16 @@ public class Status implements Serializable {
                 ", energyBar=" + energyBar +
                 ", message='" + message + '\'' +
                 '}';
+    }
+
+    public JSONObject toJson(){
+        JSONObject states = new JSONObject();
+        states.put("bar", bar);
+        states.put("foodBar", foodBar);
+        states.put("funBar", funBar);
+        states.put("cleanBar", cleanBar);
+        states.put("energyBar", energyBar);
+        states.put("message", message);
+        return states;
     }
 }
