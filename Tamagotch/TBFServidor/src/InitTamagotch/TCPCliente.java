@@ -6,7 +6,7 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class TCPCliente {
+public class TCPCliente implements Serializable{
     public JSONObject cliente (JSONObject jsonTamagotch) {
         // arguments supply message and hostname
         Socket s = null;
@@ -22,15 +22,18 @@ public class TCPCliente {
 //            System.out.println(jsonTamagotch.toString());
             try {
                 out.writeObject(jsonTamagotch);
-                JSONObject tama = (JSONObject) in.readObject();
-                System.out.println(tama.toString());
-                return tama;
+                out.flush();
+
+                JSONObject tmg = (JSONObject) in.readObject();
+
+                System.out.println(tmg.toString());
+                return tmg;
             }catch (ClassNotFoundException e){
                 e.printStackTrace();
             }
         }catch (UnknownHostException e){System.out.println("Socket:"+e.getMessage());
         }catch (EOFException e){System.out.println("EOF:"+e.getMessage());
-        }catch (IOException e){System.out.println("readline:"+e.getMessage());
+        }catch (IOException e){System.out.println("readline:"+e.getMessage()); e.printStackTrace();
         }finally {if(s!=null) try {s.close();}catch (IOException e){System.out.println("close:"+e.getMessage());}}
         return null;
     }

@@ -1,8 +1,9 @@
 package server;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class InteradorTamagotchi {
+public class InteradorTamagotchi implements Serializable {
 
     public Tamagotch born(String nome){
         int bar = 100;

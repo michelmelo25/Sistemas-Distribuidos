@@ -2,7 +2,9 @@ package server;
 
 import org.json.simple.JSONObject;
 
-public class Despachante extends Thread {
+import java.io.Serializable;
+
+public class Despachante extends Thread implements Serializable {
 
     public JSONObject run(JSONObject in){
 //        Tamagotch data =  new Tamagotch(in);

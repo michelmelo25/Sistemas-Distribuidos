@@ -2,7 +2,9 @@ package server;
 
 import org.json.simple.JSONObject;
 
-public class Esqueleto {
+import java.io.Serializable;
+
+public class Esqueleto implements Serializable {
 
     private InteradorTamagotchi interadorTamagotchi = new InteradorTamagotchi();
 

@@ -2,7 +2,9 @@ package server;
 
 import org.json.simple.JSONObject;
 
-public class Tamagotch {
+import java.io.Serializable;
+
+public class Tamagotch implements Serializable {
     private String nome;
     private Status status;
     private String face;
