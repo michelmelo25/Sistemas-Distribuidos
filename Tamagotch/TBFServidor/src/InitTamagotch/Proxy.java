@@ -33,7 +33,12 @@ public class Proxy {
 
     public  Tamagotch Action(String action){
         jsonTamagotch.put("action", action);
-        tcpCliente.cliente(jsonTamagotch);
+        if(jsonTamagotch.get("action").equals("current_status")){
+            System.out.println(new Status(tcpCliente.cliente(jsonTamagotch)).toString());
+        }else{
+            jsonTamagotch = tcpCliente.cliente(jsonTamagotch);
+            System.out.println(new Tamagotch(jsonTamagotch).toString());
+        }
     return null;
     }
 

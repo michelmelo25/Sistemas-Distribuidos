@@ -40,7 +40,7 @@ public class initTamagotch {
                     proxy.Action("bathe");
                     break;
                 case 4:
-                    proxy.Action("left_rest");
+                    proxy.Action("let_rest");
                     break;
                 case 5:
                     proxy.Action("give_affection");

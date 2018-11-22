@@ -10,6 +10,37 @@ public class InteradorTamagotchi implements Serializable {
         {
             add("Que comida boa, Yammy");
             add("Tava ruim mas pelo menos é comida");
+            add("Obrigado pela comida");
+        }
+    };
+    List<String> playMessageOptions = new ArrayList<>(){
+        {
+            add("Hahahaha, que divertido!");
+            add("Mas que brincadeira ruim!");
+            add("Você não teria coisa melhor não?");
+            add("Gostei!");
+            add("Você não teria coisa melhor não?");
+        }
+    };
+    List<String> batchMessageOptions = new ArrayList<>(){
+        {
+            add("Estou limpinho!");
+            add("Que banho gostoso");
+            add("");
+        }
+    };
+    List<String> letRestMessageOptions = new ArrayList<>(){
+        {
+            add("Quem foi que apagou a luzes?");
+            add("");
+            add("");
+        }
+    };
+    List<String> giveAffectionMessageOptions = new ArrayList<>(){
+        {
+            add("kkkkkkkk, boa piada!");
+            add("");
+            add("");
         }
     };
     public Tamagotch born(String nome){
@@ -39,9 +70,9 @@ public class InteradorTamagotchi implements Serializable {
 //        Tamagotch tmg = toTamagotch(args);
         tmg.getStatus().setMessage("");
         String message = "Que comida boa, Yammy";
-        tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() + 20);
-        tmg.getStatus().setEnergyBar(tmg.getStatus().getEnergyBar() - 10);
-        tmg.getStatus().setCleanBar(tmg.getStatus().getCleanBar() -10);
+        tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() + new Random().nextInt(21));
+        tmg.getStatus().setEnergyBar(tmg.getStatus().getEnergyBar() - new Random().nextInt(11));
+        tmg.getStatus().setCleanBar(tmg.getStatus().getCleanBar() - new Random().nextInt(11));
 
         return messageStatus(tmg, message);
     }
@@ -49,38 +80,38 @@ public class InteradorTamagotchi implements Serializable {
     public Tamagotch play(Tamagotch tmg){
         tmg.getStatus().setMessage("");
         String message = "Hahahaha, que divertido!";
-        tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() - 10);
-        tmg.getStatus().setEnergyBar(tmg.getStatus().getEnergyBar() - 10);
-        tmg.getStatus().setCleanBar(tmg.getStatus().getCleanBar() - 10);
-        tmg.getStatus().setFunBar(tmg.getStatus().getFunBar() + 20);
+        tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() - new Random().nextInt(11));
+        tmg.getStatus().setEnergyBar(tmg.getStatus().getEnergyBar() - new Random().nextInt(11));
+        tmg.getStatus().setCleanBar(tmg.getStatus().getCleanBar() - new Random().nextInt(11));
+        tmg.getStatus().setFunBar(tmg.getStatus().getFunBar() + new Random().nextInt(21));
 
         return  messageStatus(tmg, message);
     }
     public Tamagotch bathe(Tamagotch tmg){
         tmg.getStatus().setMessage("");
         String message = "Estou limpinho!";
-        tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() - 5);
-        tmg.getStatus().setEnergyBar(tmg.getStatus().getEnergyBar() - 5);
+        tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() - new Random().nextInt(6));
+        tmg.getStatus().setEnergyBar(tmg.getStatus().getEnergyBar() - new Random().nextInt(6));
         tmg.getStatus().setCleanBar(100);
 
         return  messageStatus(tmg, message);
     }
-    public Tamagotch left_rest(Tamagotch tmg){
+    public Tamagotch let_rest(Tamagotch tmg){
         tmg.getStatus().setMessage("");
         String message = "Quem foi que apagou a luzes?";
-        tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() - 10);
+        tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() - new Random().nextInt(11));
         tmg.getStatus().setEnergyBar(100);
-        tmg.getStatus().setCleanBar(tmg.getStatus().getCleanBar() - 5);
-        tmg.getStatus().setFunBar(tmg.getStatus().getFunBar() - 30);
+        tmg.getStatus().setCleanBar(tmg.getStatus().getCleanBar() - new Random().nextInt(6));
+        tmg.getStatus().setFunBar(tmg.getStatus().getFunBar() - new Random().nextInt(31));
 
         return  messageStatus(tmg, message);
     }
     public Tamagotch give_affection(Tamagotch tmg){
         tmg.getStatus().setMessage("");
         String message = "kkkkkkkk, boa piada!";
-        tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() - 5);
-        tmg.getStatus().setEnergyBar(tmg.getStatus().getEnergyBar() - 10);
-        tmg.getStatus().setFunBar(tmg.getStatus().getFunBar() + 10);
+        tmg.getStatus().setFoodBar(tmg.getStatus().getFoodBar() - new Random().nextInt(6));
+        tmg.getStatus().setEnergyBar(tmg.getStatus().getEnergyBar() - new Random().nextInt(11));
+        tmg.getStatus().setFunBar(tmg.getStatus().getFunBar() + new Random().nextInt(11));
 
         return  messageStatus(tmg, message);
     }

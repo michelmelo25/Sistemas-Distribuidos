@@ -24,10 +24,8 @@ public class TCPCliente implements Serializable{
                 out.writeObject(jsonTamagotch);
                 out.flush();
 
-                JSONObject tmg = (JSONObject) in.readObject();
-
-                System.out.println(tmg.toString());
-                return tmg;
+//                JSONObject tmg = (JSONObject) in.readObject();
+                return (JSONObject) in.readObject();
             }catch (ClassNotFoundException e){
                 e.printStackTrace();
             }

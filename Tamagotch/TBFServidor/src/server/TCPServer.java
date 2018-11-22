@@ -21,8 +21,7 @@ public class TCPServer implements Serializable{
                 try{
                     JSONObject tmg = (JSONObject) in.readObject();
 
-                    JSONObject t = despachante.run(tmg);
-                    out.writeObject(t);
+                    out.writeObject(despachante.run(tmg));
                     out.flush();
                 }catch (ClassNotFoundException e){
                     e.printStackTrace();

@@ -31,7 +31,7 @@ public class Esqueleto implements Serializable {
     }
 
     public JSONObject left_rest(JSONObject args){
-        Tamagotch tmg = interadorTamagotchi.left_rest(new Tamagotch(args));
+        Tamagotch tmg = interadorTamagotchi.let_rest(new Tamagotch(args));
         return tmg.toJson();
     }
 

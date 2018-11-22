@@ -11,13 +11,10 @@ public class Despachante extends Thread implements Serializable {
 //        String action = in.get("action").toString();
         System.out.println(in.get("action").toString());
         Esqueleto esqueleto = new Esqueleto();
-
-        System.out.println("oi");
         if(in.get("action").equals("born")){
             System.out.println("Born...");
             System.out.println(in.toString());
-            JSONObject tamreture = esqueleto.born(in);
-             return tamreture;
+             return esqueleto.born(in);
         }else if(in.get("action").equals("feed")){
             System.out.println("Feed...");
             return esqueleto.feed(in);
@@ -27,8 +24,8 @@ public class Despachante extends Thread implements Serializable {
         }else if(in.get("action").equals("bathe")){
             System.out.println("Batche...");
             return esqueleto.bathe(in);
-        }else if(in.get("action").equals("left_rest")){
-            System.out.println("Left Rest...");
+        }else if(in.get("action").equals("let_rest")){
+            System.out.println("Let Rest...");
             return esqueleto.left_rest(in);
         }else if(in.get("action").equals("give_affection")){
             System.out.println("Give Affection...");

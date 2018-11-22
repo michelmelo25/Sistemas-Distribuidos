@@ -21,6 +21,15 @@ public class Status implements Serializable {
         this.message = message;
     }
 
+    public Status(JSONObject status) {
+        this.bar = (int) status.get("bar");
+        this.foodBar = (int) status.get("foodBar");
+        this.funBar = (int) status.get("funBar");
+        this.cleanBar = (int) status.get("cleanBar");
+        this.energyBar = (int) status.get("energyBar");
+        this.message = (String) status.get("message");
+    }
+
     public int getBar() {
         return bar;
     }
