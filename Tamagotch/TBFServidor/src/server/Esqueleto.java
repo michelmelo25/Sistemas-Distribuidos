@@ -15,26 +15,6 @@ public class Esqueleto implements Serializable {
         return tmg.toJson();
     }
 
-//    public String adc(String args[]){
-//        double result = interadorTamagotchi.adc(Double.parseDouble(args[0]), Double.parseDouble(args[1]));
-//        return "" + result;
-//    }
-//
-//    public String sub(String args []){
-//        double result = interadorTamagotchi.sub(Double.parseDouble(args[0]), Double.parseDouble(args[1]));
-//        return "" + result;
-//    }
-//
-//    public String mul(String args []){
-//        double result = interadorTamagotchi.mul(Double.parseDouble(args[0]), Double.parseDouble(args[1]));
-//        return "" + result;
-//    }
-//
-//    public String div(String args []){
-//        double result = interadorTamagotchi.div(Double.parseDouble(args[0]), Double.parseDouble(args[1]));
-//        return "" + result;
-//    }
-
     public JSONObject feed(JSONObject args){
         Tamagotch tmg = interadorTamagotchi.feed(new Tamagotch(args));
         return tmg.toJson();
